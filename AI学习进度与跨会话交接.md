@@ -130,9 +130,10 @@
 - **实操产出**：
   - 重新配置本地全局 Git 署名并对齐 GitHub 绑定邮箱（`lvjunhan` / `2983136618@qq.com`）与中文路径显示（`core.quotepath false`）；
   - 新建 `C:\Users\ShuFen\学习初级数据\.gitignore`（成功忽略 `__pycache__/`、`*.pyc`、`out/`）；
-  - 本地完成 `git init` 及 3 次分模块 `commit`（`docs` + Day 1 + Day 2），修正远程仓库地址（`git remote set-url`）后成功 `push` 至 GitHub 公开仓库 `https://github.com/shufen12/data-career-prep`（`main` 分支，3 commits，头像关联正常）。
+  - 本地完成 `git init` 及分模块 `commit`，修正远程仓库地址（`git remote set-url`）后 `push` 至 GitHub 公开仓库 `https://github.com/shufen12/data-career-prep`；
+  - 掌握 VS Code 源代码管理图形界面（新增 `README.md` 并推云端），并独立完成 **M1–M3 三合一无提示综合检验《车速日志质检小工具》**：命令行造 `data/speed_log.txt`、`src/log_parser.py`、`src/run_check.py` → `out/speed_report.txt` + `out/speed_errors.txt`，提交 `5dc319e` 已同步 `origin/main`。
 - **抽查与掌握度**：
-  - 已掌握：Git 三区流转与 `add` / `commit` / `push` 区别、`.gitignore` 忽略机制（收尾 2 题全对）；间隔记忆第 2 轮完成（`echo` 方向、`-n 3`、`data/` 全对；仅遗留 `>` 覆盖 vs `>>` 追加区分，留 11-25 第 3 轮追查）；`>>>` 用 `exit()` 通过 1/2。
+  - 已掌握：Git 三区流转与 `add` / `commit` / `push` 区别、`.gitignore` 忽略机制（收尾 2 题全对）；间隔记忆第 2 轮完成（`echo` 方向、`-n 3`、`data/` 全对；仅遗留 `>` 覆盖 vs `>>` 追加区分，留 11-25 第 3 轮追查）；`>>>` 用 `exit()` 通过 1/2；独立跑通 Python 异常+模块化+命令行+Git 推送闭环（曾遇 `mkdir` 建文件误区与 `speed <= 0` 提前 `return` 误区，均已改通）。
 - **明日精确第一步**：启动 **M4（市场校准日）**：调研 20 份上海/深圳真实 JD（10 份智驾/车企数据岗 + 10 份通用数据分析岗），汇总高频技能词；同时在 11-25 开局执行 Linux 命令行第 3 轮间隔抽查。
 
 <!-- 后续每天按以下模板由 AI 追加：
