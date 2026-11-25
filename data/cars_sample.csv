@@ -1,0 +1,9 @@
+brand,model,price_wan,mileage_km,city,is_ev
+比亚迪,秦PLUS,9.98,12000,深圳,True
+特斯拉,Model 3,23.19,35000,上海,True
+吉利,星越L,14.77,28000,杭州,False
+理想,L7,30.18,18500,上海,True
+长安,UNI-V,10.89,,深圳,False
+小鹏,P7,20.99,22000,深圳,True
+蔚来,ET5,29.80,15000,上海,True
+奇瑞,瑞虎8,11.99,41000,合肥,False
