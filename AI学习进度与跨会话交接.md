@@ -3,7 +3,7 @@
 > **文件用途**：本文件是跨会话连续学习的**唯一进度事实源**。每次学习结束时由 AI 更新；以后新开任何对话，AI 读取本文件即可无缝接上之前所有天的学习内容、薄弱点和代码路径。
 > **学习主目录**：`C:\Users\ShuFen\学习初级数据`
 > **配套总规划书**：`C:\Users\ShuFen\学习初级数据\转行AI数据岗-零基础重构规划书.md`
-> **最后更新时间**：2026-11-25
+> **最后更新时间**：2026-11-26
 
 ---
 
@@ -15,7 +15,13 @@
 4. **阶梯式阻力排错协议（2026-11-23 确立，防止 AI 拐杖依赖）**：
    - **第一轮检查/排错**：用户发代码请求检查或问为何报错时，**默认先不直接点破具体出错行号与改法**，而是先指明**出问题的方向/函数**，并引导用户用 `print(...)` 调试或核对终端报错关键词自己定位（除非只是纯命令行操作失误或环境配置阻塞）。
    - **第二轮点破**：只有当用户自己动手排查一轮仍未找到（或明确要求"直接告诉我具体哪行错"）时，再点破具体行号与底层原因，仍由用户亲手改通。
-5. **结束时强制写回**：当天学习告一段落或用户说"打卡/更新进度/今天先到这里"时，**必须立即编辑本文件**，把当天日期、学完的视频/知识点、写完的代码路径、新暴露的薄弱点以及下一天精确第一步写入下方日志，并勾选对应里程碑。
+5. **三类分级出题协议（2026-11-26 `/grill-me` 确立）**：
+   - **触发节奏（负荷分级）**：12/15 低负载期每日新课后**只出第 1 + 第 2 类（总计控制在 25 分钟内）**；**第 3 类**仅在章节收官、周末或 12/16 进入每日 5h 整块期后触发。
+   - **第 1 类（5–8 分钟｜闭卷微变形防坑小测）**：不照搬视频原例，换表/改边界条件或埋 1 个易错坑要求不看笔记手敲排雷（次日开局继续保留 2 分钟旧知复核）。
+   - **第 2 类（15–20 分钟｜当堂知识应用题）**：用本轮刚学核心知识点独立完成 1 道贴近业务/车辆数据场景的实操题。
+   - **第 3 类（25–30 分钟｜真实工作流综合题）**：仅串联现实工程中真实上下游配合的旧技能（如命令行探查 → Pandas 清洗统计 → 函数封装/异常兜底 → Git 推仓），不强行拼盘已被替代的原生语法。
+   - **超时止损**：单处卡壳超 10–15 分钟或整题超时，立刻贴代码与报错走第 4 条"阶梯式阻力排错"，绝不硬耗挤压主线进度。
+6. **结束时强制写回**：当天学习告一段落或用户说"打卡/更新进度/今天先到这里"时，**必须立即编辑本文件**，把当天日期、学完的视频/知识点、写完的代码路径、新暴露的薄弱点以及下一天精确第一步写入下方日志，并勾选对应里程碑。
 
 ---
 
@@ -33,8 +39,8 @@
 | 项 | 当前状态 |
 |---|---|
 | **当前所在阶段** | 阶段一：低负载打底期（11/22 – 12/15） |
-| **累计已完成学习天数** | **6 天**（已完成 Day 1–Day 6，M1–M4 已通关，M5 起步与课程校准完成） |
-| **下一次对话的精确起点** | **Day 7｜M5（尚硅谷 Pandas 起步）**：先执行 **Linux 高频命令第 3 轮（11-25 场景串联闭卷考）** + 复核 `git remote set-url` 错题 → 直接看 **尚硅谷《Python数据分析》第 022–027 集（Pandas 概述与 Series）**（跳过 001–021，VS Code Jupyter 环境已测通） |
+| **累计已完成学习天数** | **8 天**（已完成 Day 1–Day 8，M1–M4 已通关，M5 已学完 `Series` 全章 + `DataFrame` 核心 034–042 集） |
+| **下一次对话的精确起点** | **Day 9｜M5（尚硅谷 DataFrame 进阶与清洗）**：开局 2 分钟抽查 `header=None` 配合、`NaN` 判空（`~isna`/`notna`）、`reset_index(drop=True)` 与 `describe()` 离散度逻辑 → 3 句大白话前置建模 → 开看 **尚硅谷《Python数据分析》第 043 集起（至 052 集收尾后触发第 3 类真实工作流综合题）** |
 | **本地学习主目录** | `C:\Users\ShuFen\学习初级数据`（已建好） |
 | **GitHub 仓库 URL** | `https://github.com/shufen12/data-career-prep` |
 | **已累计刷 SQL 题数** | 0 题 |
@@ -71,9 +77,13 @@
 
 ## 4. 遗留薄弱点 / 错题本（新会话开局必抽查）
 
-1. **命令行细节（Day 3 暴露 → Day 4/5 改观 → 11-25 第 3 轮暴露命令词记忆衰减）**：`>` 与 `>>` 区分、`-n 1` 不加空格、`cd ..`、`rm -r` 均实操跑通；但无提示下曾遗忘 `echo`、`head`、`grep`，且把"复制"误用成 `clone` / `mv`（正确应为 `cp`），留待 11-29 第 4 轮重点追查 `echo`、`cp` vs `mv`、`head`、`grep`。
-2. **避免变量名撞车内置名 & 常用 Git 冷门修复（常规提醒）**：不要用 `list`、`sum`、`str`、`strip` 当变量名（`str` 避坑原理 Day 6 抽查已通过）；改绑远程仓库地址用 `git remote set-url origin 新地址`（Day 7 复核已独立写出 1/2，再通过 1 次即毕业）。
-3. **`pd.read_csv` 的 `header=` 与 `names=` 配合（Day 7 主动加入易错追踪）**：无表头文件自己起名必须写 `header=None, names=[...]`（若误写 `header=0` 会静默删掉第 1 行真数据）；原文件有老表头想替换列名时才写 `header=0, names=[...]`（若漏写 `header=0` 会把老表头当第 0 行数据读进来）。后续多轮抽查。
+1. **命令行细节（Day 3 暴露 → Day 4/5 改观 → 11-25 第 3 轮暴露命令词记忆衰减）**：`>` 与 `>>` 区分、`-n 1` 不加空格、`cd ..`、`rm -r` 均实操跑通；但无提示下曾遗忘 `echo`、`head`、`grep`，且把"复制"误用成 `clone` / `mv`（正确应为 `cp`），留待 **11-29 第 4 轮**重点追查 `echo`、`cp` vs `mv`、`head`、`grep`。
+2. **变量命名规范 & Git GUI/CLI 边界（常规提醒）**：不要用 `list`、`sum`、`str`、`strip` 当变量名，也少用 `a`/`b` 等无意义临时变量名；日常提交可用 VS Code 图形界面，`git remote set-url origin 新地址` / `git remote -v` 归入“懂原理+备查维修命令”（Day 8 已重讲原理并手敲通过）。
+3. **`pd.read_csv` 的 `header=` 与 `names=` 配合（Day 7 加入 → Day 8 仍出错，重置进度）**：Day 8 开局曾误答为 `head=0, name=[...]`（参数拼写错 + 误用 `header=0` 会静默删掉第 1 行真数据），经纠偏后重答对。无表头必须写 `header=None, names=[...]`；仅原文件有旧表头想改名时才用 `header=0, names=[...]`。Day 9 开局再抽查 1 次。
+4. **Python 字符串不可变性与方法调用括号（Day 7 暴露 → Day 8 原理已过关）**：`if line.strip():` 不会原地剥掉 `\n`，且 `strip()` 是方法必须带括号（Day 8 曾漏括号写成 `line.strip.split(',')`，已当场改对），Day 9 再顺带复核 1 次即毕业。
+5. **DataFrame 核心高频坑点（Day 8 新暴露）**：
+   - **二维切片与 `NaN` 过滤**：`iloc[行, 列]` 只认从 `0` 开始的整数位置（曾错写成 `[1,2,4]` 漏掉第 0 列，已自查改为 `[0,2,4]`）；判断缺失/非空绝不能用 `!= None`（会放行 `NaN`），必须用 `.notna()` 或 `~列.isna()`。
+   - **方法拼写、返回值接住与统计视角**：注意拼写 `sort_values()`（非 `sort_vlaue`）与 `DataFrame`（非 `datafream`）；`reset_index(drop=True)` 默认不改原表需重新赋值接住；看 `describe()` 时不能只因 `mean` 与 `50%` 接近就断定“无大起大落”，必须结合 `min`/`max`/`std` 判断离散度。
 
 ### 专项记忆追踪：Linux 高频命令 5 轮间隔强化计划（基于间隔重复 + 主动回忆）
 
@@ -164,6 +174,39 @@
   - 已掌握：避免变量名覆盖内置名（`str` 避坑原理 Day 6 答对）；`read_csv` 参数分工、`df[[]]` 双层方括号原理与 `.ipynb` 相对路径定位。
   - 待复核：`git remote set-url origin 新地址` 连续两次未写出（已附常用 Git 速查表，Day 7 继续巩固）；11-25 触发 Linux 高频命令第 3 轮（+3 天）场景串联闭卷考。
 - **明日精确第一步**：开局执行 **Linux 第 3 轮（11-25）场景串联闭卷测试** + 复核 `git remote set-url` → 直接开看 **尚硅谷《Python数据分析》第 022–027 集（Pandas 概述与 Series）**（VS Code Jupyter 环境已就绪）。
+
+### Day 7（2026-11-25｜阶段一｜M5 `Series` 全章通关 + 1小时综合巩固）
+- **今日学习内容**：
+  - 彻底弄懂 `pd.read_csv` 中 `sep='\t'`、`header=None` vs `header=0` 与 `names=[...]` 潜规则，并在实测中验证了误用 `header=0` 静默丢第 1 行数据的风险；
+  - 完成 **尚硅谷《Python数据分析》第 022–033 集**（`Series` 全部核心知识：自定义索引 `index`、`loc`/`iloc`/`at`/`iat` 切片左闭右开差异、常用统计/排序/去重方法、`np.random.seed`/`randint`、滑动窗口 `rolling`、重采样 `resample` 及 5 个业务案例）。
+- **实操产出**：
+  - 完成 **Linux 高频命令第 3 轮（11-25）场景串联闭卷考**（在 VS Code Git Bash 实操建目录、写/追加、查内容、删目录全跑通）；
+  - 编写并跑通 `C:\Users\ShuFen\学习初级数据\src\day7_series.ipynb`（含全部 `Series` 笔记、5 个视频案例、自主完成电动车续航 `range_km` 筛选降序、`loc` vs `iloc` 对比验证）；
+  - 完成 **Day 1–Day 7 一小时三关综合巩固**：
+    - 第 1 关：Git Bash 造出 `C:\Users\ShuFen\学习初级数据\data\review_raw.txt`（含故意脏数据）并实操 `cp` / `head -n 2` / `grep` / `mv` / `rm`；
+    - 第 2 关：编写并跑通 `C:\Users\ShuFen\学习初级数据\src\review_day7.py`（`with open` + `try/except ValueError` 跳过第 3 行脏数据 `bad_km`，算出 3 辆有效车平均里程 `20666.67`）；
+    - 第 3 关：在 `src\day7_series.ipynb` 串联读入 `../data/review_raw.txt`（`header=None` 保住 `BYD`）、品牌索引 `Series` 筛选排序（`Tesla 23.19`、`Geely 14.77`）与 `rolling(2).sum() == 2` 车速滑动窗口（`['f3', 'f6']`）；
+  - 完成 `git remote -v` 核验并提交推送至 GitHub `origin/main`（commit `Day7: 复习并跑通Series案例与...`）。
+- **抽查与掌握度**：
+  - 已掌握：`git remote set-url` 答对（1/2）；`header=None` vs `header=0` 答对（1/2）；`loc`（全闭）vs `iloc`（左闭右开）原理、`rolling(2).sum() == 2`、双层 `Series` 条件筛选 `&` 与 `ascending=False` 降序。
+  - 新暴露/待复核：
+    1. Linux 第 3 轮暴露 `echo`、`head`、`grep` 一度遗忘及“复制”误用 `clone`/`mv` 而非 `cp`，留待 **11-29 第 4 轮**必考；
+    2. 复习写 `review_day7.py` 时曾把空列表 `[]` 错放进 `for` 循环内（已现场自行定位修好），并暴露 `if line.strip():` 不会原地剥掉 `line` 末尾 `\n` 的误区（已用 `line.strip().split(',')` 改通）；
+    3. `day7_series.ipynb` 复习中曾把 `read_csv` 误写成 `read_txt`、`names` 少 `s`、以及混淆 `index=` 与 `name=`，经引导均已当场独立改通。
+- **明日精确第一步**：开局 2 分钟抽查 **`header=`/`names=` 配合** + **`git remote set-url` 终检** + **`.strip()` 返回值原理** → 3 句大白话吃透 `DataFrame` 行列结构与索引 → 开看 **尚硅谷《Python数据分析》第 034–038 集（`DataFrame` 创建、属性与索引操作）**。
+
+### Day 8（2026-11-26｜阶段一｜M5 `DataFrame` 核心 034–042 + 方法论沉淀）
+- **今日学习内容**：
+  - 复盘并修正 `header=None, names=[...]`、`line.strip().split(',')` 及 `git remote set-url` 原理（明确日常提交可用 VS Code 图形界面，低频维修命令懂原理备查即可）；
+  - 完成 **尚硅谷《Python数据分析》第 034–042 集**（`DataFrame` 4 种创建方式、常用属性 `shape`/`columns`/`dtypes`/`T`、`loc`/`iloc`/`at`/`iat` 二维行列切片、多条件 `&`/`~` 布尔筛选、`isin`/`isna`/`notna`/`sort_values`/`nlargest`/`describe`/`drop`/`rename`/`reset_index(drop=True)`/`nunique`/`drop_duplicates`）；
+  - 通过 `/grill-me` + `/learn /plan` 定稿**「三类分级出题协议」**（写入本文件第 0 节），并沉淀为跨领域通用全局技能 `study-coach`。
+- **实操产出**：
+  - 编写并跑通 `C:\Users\ShuFen\学习初级数据\src\day8_dataframe.ipynb`（4 种 `DataFrame` 创建、`cars_sample.csv` 前两关二维切片与筛选统计、新协议第 1+2 类应用题与 `drop`/`rename`/`reset_index(drop=True)`/`drop_duplicates` 补充加练）；
+  - 创建全局技能 `C:\Users\ShuFen\.gemini\config\skills\study-coach\SKILL.md` 及通用模板 `resources\handoff-template.md`。
+- **抽查与掌握度**：
+  - 已掌握：`loc[行切片, [列名列表]]` vs `iloc[行切片, [整数列位置列表]]` 二维对齐切片；`~列.isna()` 与 `isin` 联合过滤 `NaN`；链式 `( ... ).round(2)`；`cars['city'].drop_duplicates()`（`Series`）vs `cars.drop_duplicates(subset=['city'])`（`DataFrame`）类型与数据差异。
+  - 新暴露/待复核：`header=None, names=[...]`（曾误答 `head=0, name=...`）、`strip()` 括号、`NaN` 不可用 `!= None`、拼写 `sort_values`/`DataFrame`、`reset_index(drop=True)` 需接住返回值，以及 `describe()` 需结合 `min`/`max`/`std` 判断离散度。
+- **明日精确第一步**：开局 2 分钟抽查 **`header=None` vs `header=0`**、**`NaN` 判空与 `reset_index(drop=True)` 原理**、**`describe()` 离散度视角** → 3 句大白话前置建模 → 开看 **尚硅谷《Python数据分析》第 043 集起（`DataFrame` 进阶清洗与分组聚合，至 052 集收尾后触发第 3 类真实工作流综合题）**。
 
 <!-- 后续每天按以下模板由 AI 追加：
 ### Day X（YYYY-MM-DD｜阶段X）
