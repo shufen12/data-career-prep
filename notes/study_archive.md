@@ -61,3 +61,19 @@
   - 已掌握：`>>>` 敲 `exit()` 与 `$` 敲 `exit` 连续 2 天通过（已从错题本毕业）；`>` 覆盖与 `>>` 追加区分答对。
   - 待复核：`git remote set-url origin 新地址` 曾遗忘，留下一轮抽查；11-25 起触发 Linux 高频命令第 3 轮（+3 天）场景串联闭卷测试。
 - **明日精确第一步**：开局抽查 `git remote set-url`（若已到 `2026-11-25` 同步执行 Linux 第 3 轮场景闭卷测试）→ 3 句大白话理解 Pandas DataFrame/Series → 开启 **M5（蚂蚁学Python《Pandas数据分析从入门到实战》P1–P3）**。
+
+### Day 6（2026-11-24｜阶段一｜M5 起步与课程校准）
+- **今日学习内容**：
+  - 3 句大白话吃透 `DataFrame`、`Series` 与 `Jupyter Notebook` 定位，核实 VS Code Python 解释器路径（`Python315\python.exe` 已装 `pandas 3.1.1`、`ipykernel 7.4.0`）；
+  - 看完原定蚂蚁学Python P1–P3 后因节奏跳跃、缺过渡与环境割裂，经 `/grill-me` 拆解将 M5 主教程统一切换为 **尚硅谷《Python数据分析》第 022–052 集（Pandas）+ 第 053–060 集（Matplotlib）**（跳过 001–021 装软件与 NumPy，遇零星 `np.` 现查），并改用 VS Code 安装 `Jupyter` 插件跟练。
+- **实操产出**：
+  - 独立编写并跑通 `C:\Users\ShuFen\学习初级数据\src\day6_pandas_intro.py`：
+    - 读入 `data/cars_sample.csv` 并识别 `mileage_km` 缺失值（`7 non-null`）；
+    - 修正 `read_csv` 与 `to_csv` 混淆，用 `sep='\t', header=None, names=[...]` 读入无表头 `data/sensor_log.txt`；
+    - 验证单列 `Series`（均价 `18.97`）与双列列表包裹 `df[['price_wan', 'brand']]` 返回 `DataFrame` 的差异。
+  - 在 VS Code 安装微软官方 `Jupyter` 插件，并新建 `src/test_nb.ipynb` 结合 `os.getcwd()` 自行修正相对路径 `../data/cars_sample.csv` 成功渲染出交互表格。
+  - 已同步更新 `转行AI数据岗-零基础重构规划书.md` 与交接单中的 M5 课程方案。
+- **抽查与掌握度**：
+  - 已掌握：避免变量名覆盖内置名（`str` 避坑原理 Day 6 答对）；`read_csv` 参数分工、`df[[]]` 双层方括号原理与 `.ipynb` 相对路径定位。
+  - 待复核：`git remote set-url origin 新地址` 连续两次未写出（已附常用 Git 速查表，Day 7 继续巩固）；11-25 触发 Linux 高频命令第 3 轮（+3 天）场景串联闭卷考。
+- **明日精确第一步**：开局执行 **Linux 第 3 轮（11-25）场景串联闭卷测试** + 复核 `git remote set-url` → 直接开看 **尚硅谷《Python数据分析》第 022–027 集（Pandas 概述与 Series）**（VS Code Jupyter 环境已就绪）。
